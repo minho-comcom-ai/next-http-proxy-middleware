@@ -4,6 +4,8 @@ export interface NextHttpProxyMiddlewareOptions extends ServerOptions {
     pathRewrite?: {
         [key: string]: string;
     };
+    /** @type {(proxyReq: any, req: any) => boolean} Override proxyReq event handler. If return true, bypass the original event handler. */
+    proxyReqOverride?: (proxyReq: any, req: any) => boolean;
 }
 /**
  * If a key pattern is found in `pathRewrite` that matches the url value,
